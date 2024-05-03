@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.myHome.tmux;
+  cfg = config.myTerminal.tmux;
 in
 {
-  options.myHome.tmux = with lib; {
+  options.myTerminal.tmux = with lib; {
     enable = mkEnableOption "tmux";
   };
 

@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.myHome.cli;
+  cfg = config.myTerminal.cli;
 in
 {
-  options.myHome.cli = {
+  options.myTerminal.cli = {
     enable = (lib.mkEnableOption "cli") // { default = true; };
     personalGitEnable = (lib.mkEnableOption "personalGitEnable") // { default = true; };
   };

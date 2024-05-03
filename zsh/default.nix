@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  options.myHome.zsh = with lib; {
+  options.myTerminal.zsh = with lib; {
     enable = mkEnableOption "zsh";
   };
   config = {

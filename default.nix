@@ -6,7 +6,7 @@
     ./zsh
   ];
 
-  myHome = {
+  myTerminal = {
     neovim = {
       enable = true;
       enableLSP = true;
