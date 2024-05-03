@@ -2,11 +2,8 @@
   description = "iancleary's example config";
 
   inputs = {
-    # flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    #home-manager.url = "github:nix-community/home-manager";
-    #home-manager.inputs.nixpkgs.follows = "nixpkgs";
     neovim-plugins = {
       url = "github:LongerHV/neovim-plugins-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,10 +11,8 @@
   };
 
   outputs = inputs @ { self
-    # , flake-utils
     , nixpkgs
     , nixpkgs-unstable
-    #, home-manager
     , neovim-plugins
   }:
   let
@@ -38,7 +33,7 @@
     );
 in
   {
-    homeManagerModules.default = import ./default.nix;
-    homeManagerModules.home-manager = import ./default.nix;
+    homeManagerModules.default = import ./default.nix { inherit specialArgs;; };
+    homeManagerModules.home-manager = import ./default.nix { inherit specialArgs; };
   };
 }
