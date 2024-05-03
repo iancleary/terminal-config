@@ -23,7 +23,11 @@
   let
     forAllSystems = nixpkgs.lib.genAttrs flake-utils.lib.defaultSystems;
     overlays = {
-        neovimPlugins = neovim-plugins.overlays.defaulti;
+      unstable = final: prev: {
+        unstable = nixpkgs-unstable.legacyPackages.${prev.system};
+        inherit (nixpkgs-unstable.legacyPackages.${prev.system}) neovim-unwrapped;
+      };
+      neovimPlugins = neovim-plugins.overlays.defaulti;
     };
 
     legacyPackages = forAllSystems (system:
