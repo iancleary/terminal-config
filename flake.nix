@@ -29,13 +29,13 @@
       neovimPlugins = neovim-plugins.overlays.defaulti;
     };
 
-    # legacyPackages = builtins.currentSystem (system:
-    #   import inputs.nixpkgs {
-    #       inherit system;
-    #       overlays = builtins.attrValues overlays;
-    #       config.allowUnfree = true;
-    #     }
-    # );
+    legacyPackages = builtins.currentSystem (system:
+      import inputs.nixpkgs {
+          inherit system;
+          overlays = builtins.attrValues overlays;
+          config.allowUnfree = true;
+        }
+    );
 in
   {
     homeManagerModules.default = import ./default.nix;
