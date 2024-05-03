@@ -5,8 +5,8 @@
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    #home-manager.url = "github:nix-community/home-manager";
+    #home-manager.inputs.nixpkgs.follows = "nixpkgs";
     neovim-plugins = {
       url = "github:LongerHV/neovim-plugins-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +17,7 @@
     , flake-utils
     , nixpkgs
     , nixpkgs-unstable
-    , home-manager
+    #, home-manager
     , neovim-plugins
   }:
   let
