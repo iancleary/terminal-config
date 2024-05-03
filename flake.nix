@@ -13,13 +13,12 @@
     };
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    nixpkgs-unstable,
-    home-manager,
-    neovim-plugins,
-    ...
+  outputs = inputs @ { self
+    , flake-utils
+    , nixpkgs
+    , nixpkgs-unstable
+    , home-manager
+    , neovim-plugins
   }:
   let
     forAllSystems = nixpkgs.lib.genAttrs flake-utils.lib.defaultSystems;
