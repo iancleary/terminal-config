@@ -2,7 +2,7 @@
   description = "iancleary's example config";
 
   inputs = {
-    flake-utils.url = "github:numtide/flake-utils";
+    # flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     #home-manager.url = "github:nix-community/home-manager";
@@ -14,14 +14,13 @@
   };
 
   outputs = inputs @ { self
-    , flake-utils
+    # , flake-utils
     , nixpkgs
     , nixpkgs-unstable
     #, home-manager
     , neovim-plugins
   }:
   let
-    forAllSystems = nixpkgs.lib.genAttrs flake-utils.lib.defaultSystems;
     overlays = {
       unstable = final: prev: {
         unstable = nixpkgs-unstable.legacyPackages.${prev.system};
@@ -30,7 +29,7 @@
       neovimPlugins = neovim-plugins.overlays.defaulti;
     };
 
-    legacyPackages = forAllSystems (system:
+    legacyPackages = builtins.currentSystem (system:
       import inputs.nixpkgs {
           inherit system;
           overlays = builtins.attrValues overlays;
