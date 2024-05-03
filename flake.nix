@@ -33,6 +33,7 @@
     );
 in
   {
+    overlays.default = overlays;
     homeManagerModules.default = import ./default.nix { inherit specialArgs;; };
     homeManagerModules.home-manager = import ./default.nix { inherit specialArgs; };
   };
