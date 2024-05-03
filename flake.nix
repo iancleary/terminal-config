@@ -21,7 +21,7 @@
         unstable = nixpkgs-unstable.legacyPackages.${prev.system};
         inherit (nixpkgs-unstable.legacyPackages.${prev.system}) neovim-unwrapped;
       };
-      neovimPlugins = neovim-plugins.overlays.defaulti;
+      neovimPlugins = neovim-plugins.overlays.default;
     };
 
     legacyPackages = builtins.currentSystem (system:
@@ -33,8 +33,8 @@
     );
 in
   {
-    overlays.default = overlays;
-    homeManagerModules.default = import ./default.nix { inherit specialArgs;; };
-    homeManagerModules.home-manager = import ./default.nix { inherit specialArgs; };
+    overlays.default = neovim-plugins.overlays.default; # pass through the neovim-plugins overlay
+    homeManagerModules.default = import ./default.nix;
+    homeManagerModules.home-manager = import ./default.nix;
   };
 }
