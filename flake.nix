@@ -16,6 +16,7 @@
     , neovim-plugins
   }:
   let
+    forAllSystems = nixpkgs.lib.genAttrs [ "aarch64-linux" "x86_64-linux" ];
     overlays = {
       unstable = final: prev: {
         unstable = nixpkgs-unstable.legacyPackages.${prev.system};
@@ -36,5 +37,11 @@ in
     overlays.default = neovim-plugins.overlays.default; # pass through the neovim-plugins overlay
     homeManagerModules.default = import ./default.nix;
     homeManagerModules.home-manager = import ./default.nix;
+
+    devShells = forAllSystems (system: {
+      lint = nixpkgs.legacyPackages.${system}.callPackage ./shells/lint.nix { };
+    });
+
+    formatter = forAllSystems (system: nixpkgs.legacyPackages."${system}".nixpkgs-fmt);
   };
 }
