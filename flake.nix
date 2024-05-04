@@ -10,31 +10,39 @@
     };
   };
 
-  outputs = inputs @ { self
+  outputs =
+    inputs @ { self
     , nixpkgs
     , nixpkgs-unstable
     , neovim-plugins
-  }:
-  let
-    overlays = {
-      unstable = final: prev: {
-        unstable = nixpkgs-unstable.legacyPackages.${prev.system};
-        inherit (nixpkgs-unstable.legacyPackages.${prev.system}) neovim-unwrapped;
+    }:
+    let
+      forAllSystems = nixpkgs.lib.genAttrs [ "aarch64-linux" "x86_64-linux" ];
+      overlays = {
+        unstable = final: prev: {
+          unstable = nixpkgs-unstable.legacyPackages.${prev.system};
+          inherit (nixpkgs-unstable.legacyPackages.${prev.system}) neovim-unwrapped;
+        };
+        neovimPlugins = neovim-plugins.overlays.default;
       };
-      neovimPlugins = neovim-plugins.overlays.default;
-    };
 
-    legacyPackages = builtins.currentSystem (system:
-      import inputs.nixpkgs {
+      legacyPackages = builtins.currentSystem (system:
+        import inputs.nixpkgs {
           inherit system;
           overlays = builtins.attrValues overlays;
           config.allowUnfree = true;
         }
-    );
-in
-  {
-    overlays.default = neovim-plugins.overlays.default; # pass through the neovim-plugins overlay
-    homeManagerModules.default = import ./default.nix;
-    homeManagerModules.home-manager = import ./default.nix;
-  };
+      );
+    in
+    {
+      overlays.default = neovim-plugins.overlays.default; # pass through the neovim-plugins overlay
+      homeManagerModules.default = import ./default.nix;
+      homeManagerModules.home-manager = import ./default.nix;
+
+      devShells = forAllSystems (system: {
+        lint = nixpkgs.legacyPackages.${system}.callPackage ./shells/lint.nix { };
+      });
+
+      formatter = forAllSystems (system: nixpkgs.legacyPackages."${system}".nixpkgs-fmt);
+    };
 }
