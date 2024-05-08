@@ -36,6 +36,7 @@ in
       openssh
       p7zip
       ranger
+      sd
       tree
       unzip
       wget
