@@ -82,7 +82,7 @@ function M.setup_servers(lsp_servers)
 
 		-- Don't setup the rustaceannvim server
 		if not vim.startswith(server, "rustacean") then
-		  lspconfig[server].setup(config)
+			lspconfig[server].setup(config)
 		end
 	end
 end
