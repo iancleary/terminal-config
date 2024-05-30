@@ -81,6 +81,8 @@ function M.setup_servers(lsp_servers)
 		end
 
 		-- Don't setup the rustaceannvim server
+		-- since the documentation says to not do so
+		-- https://github.com/mrcjkb/rustaceanvim#zap-quick-setup
 		if not vim.startswith(server, "rustacean") then
 			lspconfig[server].setup(config)
 		end
