@@ -109,6 +109,7 @@ in
   '';
   dependencies = [
     pkgs.nvimPlugins.schemastore
+    pkgs.vimPlugins.rustaceanvim
   ];
   extraPackages = with pkgs; [
     (python3.withPackages (ps: with ps; [
@@ -139,7 +140,6 @@ in
     taplo
     tailwindcss-language-server
     marksman
-    vimPlugins.rustaceanvim
     rust-analyzer
   ];
 }
