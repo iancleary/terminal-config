@@ -79,7 +79,11 @@ function M.setup_servers(lsp_servers)
 			end
 			configs[server] = efmconfig
 		end
-		lspconfig[server].setup(config)
+
+		-- Don't setup the rustaceannvim server
+		if not vim.startswith(server, "rustacean") then
+		  lspconfig[server].setup(config)
+		end
 	end
 end
 
