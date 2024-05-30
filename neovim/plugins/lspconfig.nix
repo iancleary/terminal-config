@@ -99,6 +99,7 @@ let
       filetypes = [ "python" ];
       root_dir = [ "pyproject.toml" "setup.cfg" "seput.py" ".git" ];
     };
+    rustaceanvim = { };
   };
 in
 {
@@ -138,5 +139,7 @@ in
     taplo
     tailwindcss-language-server
     marksman
+    vimPlugins.rustaceanvim
+    rust-analyzer
   ];
 }
