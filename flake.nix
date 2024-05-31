@@ -2,7 +2,7 @@
   description = "iancleary's example config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     neovim-plugins = {
       url = "github:LongerHV/neovim-plugins-overlay";
