@@ -12,6 +12,14 @@ Provides:
 
 ## Examples
 
+While the below example is for nix-darwin, the flake is designed to be used
+on any platform with a terminal (since it's a home-manager module):
+
+* NixOS (with home-manager)
+* Ubuntu (with home-manager)
+* MacOS (with nix-darwin and home-manager)
+* WSL (with home-manager)
+
 ### Macos
 
 ```flake.nix
