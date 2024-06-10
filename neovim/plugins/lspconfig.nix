@@ -126,7 +126,7 @@ in
     unstable.lua-language-server
     unstable.nil
     unstable.gopls
-    niixpkgs-fmt
+    nixpkgs-fmt
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
     nodePackages.dockerfile-language-server-nodejs
