@@ -119,20 +119,21 @@ in
       isort
       yamllint
     ]))
-    (nodePackages.pyright.override {
-      inherit (unstable.nodePackages.pyright) src version name;
-    })
+    # (nodePackages.pyright.override {
+    #   inherit (unstable.nodePackages.pyright) src version name;
+    # })
     unstable.elixir-ls
     unstable.lua-language-server
     unstable.nil
     unstable.gopls
-    nixpkgs-fmt
+    niixpkgs-fmt
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
     nodePackages.dockerfile-language-server-nodejs
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript-language-server
     nodePackages.prettier
+    nodePackages.pyright
     yaml-language-server
     terraform-ls
     tflint
