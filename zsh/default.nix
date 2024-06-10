@@ -26,6 +26,7 @@
         hg = "history|grep"; # search bash history, I swapped the letters for github-cli compatibility
         left = "eza -t -1"; # most recently edited files
         cg = "cd `git rev-parse --show-toplevel`"; # go to git main level
+        n = "nvim";
       };
       initExtraBeforeCompInit = /* bash */ ''
         # Completion
