@@ -2,6 +2,14 @@
 
 Nix to be used with Nix and Home-Manager with flakes
 
+Provides:
+
+* [Zsh with plugins](./zsh)
+* [Git Config and Aliases](./zsh/git.zsh)
+* [neovim, with configuration](./neovim)
+* [terminal or CLI programs](cli.nix)
+* [tmux](tmux.nix)
+
 ## Examples
 
 ### Macos
@@ -13,7 +21,7 @@ Nix to be used with Nix and Home-Manager with flakes
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -88,7 +96,7 @@ Nix to be used with Nix and Home-Manager with flakes
   home = rec {
     username = "iancleary";
     homeDirectory = lib.mkForce "/Users/${username}"; # lib.mkForce allows for user to already exist
-    stateVersion = lib.mkDefault "23.11";
+    stateVersion = lib.mkDefault "24.05";
   };
 
   # Let Home Manager install and manage itself.
