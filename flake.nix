@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     neovim-plugins = {
-      url = "github:LongerHV/neovim-plugins-overlay";
+      url = "github:iancleary/neovim-plugins-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
