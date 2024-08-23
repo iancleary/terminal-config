@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 
 -- Line numbering
 vim.api.nvim_set_option_value("number", true, nil)
-vim.api.nvim_set_option_value("relativenumber", true. nil)
+vim.api.nvim_set_option_value("relativenumber", truer, nil)
 vim.api.nvim_set_option_value("wrap", false, nil)
 
 -- Better Markdown
