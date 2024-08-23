@@ -1,9 +1,9 @@
 vim.g.mapleader = " "
 
 -- Line numbering
-vim.api.nvim_set_option_value("number", true, nil)
-vim.api.nvim_set_option_value("relativenumber", true, nil)
-vim.api.nvim_set_option_value("wrap", false, nil)
+vim.api.nvim_set_option_value("number", true, { win = 0 })
+vim.api.nvim_set_option_value("relativenumber", true, { win = 0 })
+vim.api.nvim_set_option_value("wrap", false, { win = 0 })
 
 -- Better Markdown
 vim.api.nvim_set_option_value("conceallevel", 0, nil)
