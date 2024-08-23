@@ -6,7 +6,7 @@ vim.api.nvim_set_option_value("relativenumber", true, { win = 0 })
 vim.api.nvim_set_option_value("wrap", false, { win = 0 })
 
 -- Better Markdown
-vim.api.nvim_set_option_value("conceallevel", 0, nil)
+vim.api.nvim_set_option_value("conceallevel", 0, {})
 
 -- Search case
 vim.api.nvim_set_option_value("ignorecase", true, nil)
