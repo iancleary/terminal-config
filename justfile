@@ -24,5 +24,5 @@ check:
   nixpkgs-fmt --check .
 
 # Check flake evaluation
-flake:
+test:
   nix flake check --no-build --all-systems
