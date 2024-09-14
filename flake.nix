@@ -80,6 +80,23 @@
     { self
     , nixpkgs
     , nixpkgs-unstable
+    , nvim-lspconfig
+    , plenary
+    , oceanic-next
+    , telescope
+    , telescope-file-browser
+    , mini
+    , indent-blankline
+    , devicons
+    , gitsigns
+    , dressing
+    , oil
+    , schemastore
+    , nvim-cmp
+    , cmp-buffer
+    , cmp-nvim-lsp
+    , cmp-path
+    , lspkind-nvim
     }@inputs:
     let
       forAllSystems = nixpkgs.lib.genAttrs [ "aarch64-linux" "x86_64-linux" ];
@@ -96,7 +113,7 @@
                 version = value.lastModifiedDate;
                 src = value;
               };
-            plugins = prev.lib.filterAttrs (name: _: name != "self" && name != "nixpkgs") inputs;
+            plugins = prev.lib.filterAttrs (name: _: name != "self" && name != "nixpkgs" && name != "nixpkgs-unstable") inputs;
           in
           {
             nvimPlugins = builtins.mapAttrs mkPlugin plugins;
