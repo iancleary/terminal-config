@@ -142,7 +142,7 @@
         modules = [
           ({ pkgs, ... }: {
             boot.isContainer = true;
-            nixpkgs.overlays = overlays;
+            nixpkgs.overlays = [ overlays.neovimPlugins ];
             system.stateVersion = "24.05";
             programs.neovim = {
               enable = true;
