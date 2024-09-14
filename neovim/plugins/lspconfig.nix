@@ -19,7 +19,7 @@ let
     gopls = { };
     marksman = { };
     ts_ls = {
-      init_options.ts_ls.path = "${pkgs.nodePackages.typescript}/bin/ts_ls";
+      init_options.tsserver.path = "${pkgs.nodePackages.typescript}/bin/tsserver";
     };
     taplo = { };
     tailwindcss = {
@@ -82,17 +82,12 @@ let
       settings = {
         languages.python = [
           {
-            formatCommand = "black --quiet -";
+            formatCommand = "ruff format -";
             formatStdin = true;
           }
           {
-            formatCommand = "isort --quiet -";
-            formatStdin = true;
-          }
-          {
-            lintCommand = "pylama --from-stdin \${INPUT}";
+            lintCommand = "ruff check -";
             lintStdin = true;
-            lintFormats = [ "%f:%l:%c %m" ];
           }
         ];
       };
@@ -114,9 +109,7 @@ in
   extraPackages = with pkgs; [
     (python3.withPackages (ps: with ps; [
       setuptools # Required by pylama for some reason
-      pylama
-      black
-      isort
+      ruff
       yamllint
     ]))
     # (nodePackages.pyright.override {
