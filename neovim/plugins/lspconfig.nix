@@ -18,8 +18,8 @@ let
     tflint = { };
     gopls = { };
     marksman = { };
-    tsserver = {
-      init_options.tsserver.path = "${pkgs.nodePackages.typescript}/bin/tsserver";
+    ts_ls = {
+      init_options.ts_ls.path = "${pkgs.nodePackages.typescript}/bin/ts_ls";
     };
     taplo = { };
     tailwindcss = {
