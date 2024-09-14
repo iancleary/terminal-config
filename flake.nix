@@ -105,7 +105,7 @@
           unstable = nixpkgs-unstable.legacyPackages.${prev.system};
           inherit (nixpkgs-unstable.legacyPackages.${prev.system}) neovim-unwrapped;
         };
-        neovimPlugins = final: prev:
+        nvimPlugins = final: prev:
           let
             mkPlugin = name: value:
               prev.pkgs.vimUtils.buildVimPlugin {
