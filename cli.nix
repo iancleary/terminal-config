@@ -44,7 +44,7 @@ in
       yj
       yq
 
-       # core
+      # core
       nodejs_22
       nodejs_22.pkgs.pnpm
       rustup
