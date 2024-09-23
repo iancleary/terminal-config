@@ -48,6 +48,9 @@ in
       nodejs_22
       nodejs_22.pkgs.pnpm
       rustup
+
+      # aciidoc
+      asciidoctor
     ];
   };
 }
