@@ -5,7 +5,21 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # neovim-plugins
+    ## neovim-plugins
+    # neotree
+    neotree = {
+      url = "github:nvim-neo-tree/neo-tree.nvim";
+      flake = false;
+    };
+    devicons = {
+      url = "github:nvim-tree/nvim-web-devicons";
+      flake = false;
+    };
+    nui = {
+      url = "github:MunifTanjim/nui.nvim";
+      flake = false;
+    };
+    ##lsp
     nvim-lspconfig = {
       url = "github:neovim/nvim-lspconfig";
       flake = false;
@@ -14,10 +28,12 @@
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
     };
+    # theme
     oceanic-next = {
       url = "github:mhartington/oceanic-next";
       flake = false;
     };
+    # search
     telescope = {
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
@@ -32,10 +48,6 @@
     };
     indent-blankline = {
       url = "github:lukas-reineke/indent-blankline.nvim";
-      flake = false;
-    };
-    devicons = {
-      url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
     gitsigns = {
@@ -80,6 +92,8 @@
     { self
     , nixpkgs
     , nixpkgs-unstable
+    , neotree
+    , nui
     , nvim-lspconfig
     , plenary
     , oceanic-next
