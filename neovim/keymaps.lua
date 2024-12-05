@@ -28,4 +28,7 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Navigate to the top window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Navigate to the right window" })
 
 -- Neotree
-vim.keymap.set("n", "<leader>t", "<CMD>Neotree<CR>", { desc = "Open Neotree" })
+vim.keymap.set("n", "<leader>b", "<CMD>Neotree<CR>", { desc = "Open Neotree" })
+
+-- Telescope
+-- see plugins/telescope.lua for more
