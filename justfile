@@ -13,6 +13,7 @@ lint:
 # format all the files, when in a nix-shell
 format:
   nixpkgs-fmt .
+  stylua .
 
 # check all files (similar to GitHub Actions), when in a nix-shell
 check:
