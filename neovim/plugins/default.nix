@@ -11,11 +11,11 @@ let
       plugin = pkgs.nvimPlugins.mini;
       configFile = ./mini.lua;
     }
-    {
-      plugin = pkgs.nvimPlugins.indent-blankline;
-      main = "ibl";
-      opts.scope.enabled = false;
-    }
+    # {
+    #  plugin = pkgs.nvimPlugins.indent-blankline;
+    #   main = "ibl";
+    #   opts.scope.enabled = false;
+    # }
     { plugin = pkgs.nvimPlugins.oceanic-next; }
     { plugin = pkgs.nvimPlugins.nui; }
     { plugin = pkgs.nvimPlugins.devicons; }
