@@ -28,8 +28,11 @@
         cg = "cd `git rev-parse --show-toplevel`"; # go to git main level
         n = "nvim";
         p = "pnpm";
-        j = "just";
+        prd = "pnpm run dev";
+        prb = "pnpm run build";
+        prs = "pnpm run start";
         c = "cargo";
+        j = "just";
       };
       initExtraBeforeCompInit = /* bash */ ''
         # Completion
