@@ -31,6 +31,10 @@
         prd = "pnpm run dev";
         prb = "pnpm run build";
         prs = "pnpm run start";
+        pi = "pnpm install";
+        pa = "pnpm add";
+        pad = "pnpm add --save-dev";
+        pap = "pnpm add --save-peer";
         c = "cargo";
         j = "just";
       };
