@@ -27,6 +27,9 @@
         left = "eza -t -1"; # most recently edited files
         cg = "cd `git rev-parse --show-toplevel`"; # go to git main level
         n = "nvim";
+        p = "pnpm";
+        j = "just";
+        c = "cargo";
       };
       initExtraBeforeCompInit = /* bash */ ''
         # Completion
