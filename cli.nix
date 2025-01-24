@@ -51,6 +51,10 @@ in
 
       # aciidoc
       asciidoctor
+
+      # podman
+      unstable.podman
+      unstable.podman-compose
     ];
   };
 }
