@@ -35,6 +35,11 @@
         pa = "pnpm add";
         pad = "pnpm add --save-dev";
         pap = "pnpm add --save-peer";
+        pc = "podman container";
+        pils = "podman image ls";
+        pirm = "podman image rm";
+        pcls = "podman container ls";
+        pcs = "podman container stop";
         c = "cargo";
         j = "just";
       };
