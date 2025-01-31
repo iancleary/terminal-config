@@ -51,9 +51,6 @@ in
 
       # aciidoc
       asciidoctor
-
-      # Ruby (brian demo)
-      ruby_3_4
     ];
   };
 }
