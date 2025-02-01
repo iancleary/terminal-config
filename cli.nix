@@ -46,11 +46,8 @@ in
 
       # core
       nodejs_22
-      nodejs_22.pkgs.pnpm
+      unstable.pnpm
       rustup
-
-      # aciidoc
-      asciidoctor
     ];
   };
 }
