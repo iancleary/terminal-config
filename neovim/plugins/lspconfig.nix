@@ -126,7 +126,7 @@ in
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript-language-server
     nodePackages.prettier
-    nodePackages.pyright
+    pyright
     yaml-language-server
     terraform-ls
     tflint
