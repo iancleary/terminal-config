@@ -96,7 +96,6 @@ in
         ++ (builtins.foldl' (acc: p: acc ++ p.dependencies) [ ] cfg.plugins);
       extraPackages = with pkgs; [
         nodePackages.npm
-        nodePackages.neovim
       ] ++ (builtins.foldl' (acc: p: acc ++ p.extraPackages) [ ] cfg.plugins);
     };
   };
