@@ -47,6 +47,7 @@ in
       # core
       nodejs_22
       unstable.pnpm
+      unstable.bun
       rustup
     ];
   };
