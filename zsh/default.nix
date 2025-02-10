@@ -35,6 +35,15 @@
         pa = "pnpm add";
         pad = "pnpm add --save-dev";
         pap = "pnpm add --save-peer";
+        b = "bun";
+        brd = "bun run dev";
+        brb = "bun run build";
+        brs = "bun run start";
+        bi = "bun install";
+        ba = "bun add";
+        bad = "bun add -d";
+        bao = "bun add --optional";
+        bap = "bun add --peer";
         d = "docker";
         dc = "docker container";
         di = "docker image";
