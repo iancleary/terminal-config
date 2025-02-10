@@ -29,6 +29,7 @@ in
       file
       fzf
       htop
+      lazygit
       jq
       unstable.just
       neofetch
