@@ -50,6 +50,7 @@ in
       unstable.pnpm
       unstable.bun
       rustup
+      unstable.uv
     ];
   };
 }
