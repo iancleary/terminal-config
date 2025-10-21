@@ -57,33 +57,38 @@
 
       # // use mkMerge
       # https://mynixos.com/home-manager/option/programs.zsh.initContent
-      initContent = let zshConfigEarlyInit = lib.mkOrder 500 ''
-        # Completion
-        zstyle ':completion:*' menu yes select
+      initContent =
+        let
+          zshConfigEarlyInit = lib.mkOrder 500 ''
+            # Completion
+            zstyle ':completion:*' menu yes select
 
-        # Prompt
-        autoload -U promptinit; promptinit
+            # Prompt
+            autoload -U promptinit; promptinit
 
-        # SSH
-        eval $(ssh-agent)
-        [[ ! -f ~/.ssh/github_id_ed25519 ]] || ssh-add ~/.ssh/github_id_ed25519
-      ''; zshConfig = lib.mkOrder 1000 ''
-        source ${./git.zsh}
+            # SSH
+            eval $(ssh-agent)
+            [[ ! -f ~/.ssh/github_id_ed25519 ]] || ssh-add ~/.ssh/github_id_ed25519
+          '';
+          zshConfig = lib.mkOrder 1000 ''
+            source ${./git.zsh}
 
-        bindkey '^[[Z' reverse-menu-complete
+            bindkey '^[[Z' reverse-menu-complete
 
-        # Workaround for ZVM overwriting keybindings
-        zvm_after_init_commands+=("bindkey '^[[A' history-substring-search-up")
-        zvm_after_init_commands+=("bindkey '^[OA' history-substring-search-up")
-        zvm_after_init_commands+=("bindkey '^[[B' history-substring-search-down")
-        zvm_after_init_commands+=("bindkey '^[OB' history-substring-search-down")
+            # Workaround for ZVM overwriting keybindings
+            zvm_after_init_commands+=("bindkey '^[[A' history-substring-search-up")
+            zvm_after_init_commands+=("bindkey '^[OA' history-substring-search-up")
+            zvm_after_init_commands+=("bindkey '^[[B' history-substring-search-down")
+            zvm_after_init_commands+=("bindkey '^[OB' history-substring-search-down")
 
-        ####
-        # On each machine, run p10k configure once.  That should create ~/.p10k.zsh with my preferences.
-        ####
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-        # setopt auto_cd
-      ''; in lib.mkMerge [ zshConfigEarlyInit zshConfig ];
+            ####
+            # On each machine, run p10k configure once.  That should create ~/.p10k.zsh with my preferences.
+            ####
+            [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+            # setopt auto_cd
+          '';
+        in
+        lib.mkMerge [ zshConfigEarlyInit zshConfig ];
       localVariables = {
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=13,underline";
         ZSH_AUTOSUGGEST_STRATEGY = [ "history" "completion" ];
