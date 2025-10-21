@@ -54,7 +54,10 @@
         c = "cargo";
         j = "just";
       };
-      initContent = lib.mkOrder 550 /* bash */ ''
+
+      # // use mkMerge
+      # https://mynixos.com/home-manager/option/programs.zsh.initContent
+      initContent = let zshConfigEarlyInit = lib.mkOrder 500 ''
         # Completion
         zstyle ':completion:*' menu yes select
 
@@ -64,8 +67,7 @@
         # SSH
         eval $(ssh-agent)
         [[ ! -f ~/.ssh/github_id_ed25519 ]] || ssh-add ~/.ssh/github_id_ed25519
-      '';
-      initContent = /* bash */ ''
+      ''; zshConfig = lib.mkOrder 1000 ''
         source ${./git.zsh}
 
         bindkey '^[[Z' reverse-menu-complete
@@ -81,7 +83,7 @@
         ####
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
         # setopt auto_cd
-      '';
+      ''; in lib.mkMerge [ zshConfigEarlyInit zshConfig ];
       localVariables = {
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=13,underline";
         ZSH_AUTOSUGGEST_STRATEGY = [ "history" "completion" ];
