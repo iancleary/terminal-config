@@ -41,7 +41,7 @@ let
   ];
   lspPlugins = importPlugins [
     ./lspconfig.nix
-    ./cmp.nix
+    # ./cmp.nix
   ];
 in
 {

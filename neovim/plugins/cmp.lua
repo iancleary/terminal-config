@@ -2,7 +2,6 @@ local cmp = require("cmp")
 local lspkind = require("lspkind")
 
 cmp.setup({
-	enabled = true,
 	mapping = cmp.mapping.preset.insert({
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
