@@ -6,7 +6,6 @@ Provides:
 
 * [Zsh with plugins](./zsh)
 * [Git Config and Aliases](./zsh/git.zsh)
-* [neovim, with configuration](./neovim)
 * [terminal or CLI programs](cli.nix)
 * [tmux](tmux.nix)
 
@@ -116,10 +115,6 @@ on any platform with a terminal (since it's a home-manager module):
   ];
 
   myTerminal = {
-    neovim = {
-      enable = true;
-      enableLSP = true;
-    };
     zsh.enable = true;
   };
 
