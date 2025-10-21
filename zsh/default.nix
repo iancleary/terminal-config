@@ -54,7 +54,7 @@
         c = "cargo";
         j = "just";
       };
-      initExtraBeforeCompInit = /* bash */ ''
+      initContent = lib.mkOrder 550 /* bash */ ''
         # Completion
         zstyle ':completion:*' menu yes select
 
@@ -65,7 +65,7 @@
         eval $(ssh-agent)
         [[ ! -f ~/.ssh/github_id_ed25519 ]] || ssh-add ~/.ssh/github_id_ed25519
       '';
-      initExtra = /* bash */ ''
+      initContent = /* bash */ ''
         source ${./git.zsh}
 
         bindkey '^[[Z' reverse-menu-complete
