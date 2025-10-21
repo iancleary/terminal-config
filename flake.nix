@@ -16,7 +16,6 @@
       overlays = {
         unstable = final: prev: {
           unstable = nixpkgs-unstable.legacyPackages.${prev.system};
-          inherit (nixpkgs-unstable.legacyPackages.${prev.system}) neovim-unwrapped;
         };
       };
     in
@@ -28,7 +27,6 @@
           config.allowUnfree = true;
         }
       );
-      overlays.default = overlays.neovimPlugins;
       homeManagerModules.default = import ./default.nix;
       homeManagerModules.home-manager = import ./default.nix;
 
