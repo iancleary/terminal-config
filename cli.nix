@@ -45,10 +45,10 @@ in
       yj
       yq
 
-      # core
+      # software
       nodejs_22
-      unstable.pnpm
-      unstable.bun
+      # for bun, pnpm, use npm - `npm install -g bun pnpm`'
+      # since this allows them to stay up to date more easily
       rustup
       unstable.uv
     ];
