@@ -69,6 +69,9 @@
             # SSH
             eval $(ssh-agent)
             [[ ! -f ~/.ssh/github_id_ed25519 ]] || ssh-add ~/.ssh/github_id_ed25519
+
+            # Load NVM
+            [[ ! -f /usr/share/nvm/init-nvm.sh ]] || source /usr/share/nvm/init-nvm.sh
           '';
           zshConfig = lib.mkOrder 1000 ''
             source ${./git.zsh}

@@ -47,6 +47,7 @@ in
 
       # for bun, pnpm, use npm - `npm install -g bun pnpm`'
       # since this allows them to stay up to date more easily
+      nvm
       rustup
       unstable.uv
     ];
