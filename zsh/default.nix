@@ -70,8 +70,13 @@
             eval $(ssh-agent)
             [[ ! -f ~/.ssh/github_id_ed25519 ]] || ssh-add ~/.ssh/github_id_ed25519
 
-            # Load NVM
+            # Load NVM (Arch)
             [[ ! -f /usr/share/nvm/init-nvm.sh ]] || source /usr/share/nvm/init-nvm.sh
+
+            # Load NVM (Ubuntu)
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
           '';
           zshConfig = lib.mkOrder 1000 ''
             source ${./git.zsh}
