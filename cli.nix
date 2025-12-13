@@ -17,8 +17,12 @@ in
       };
       git = {
         enable = true;
-        userName = lib.mkIf cfg.personalGitEnable "iancleary";
-        userEmail = lib.mkIf cfg.personalGitEnable "github@iancleary.me";
+        settings = {
+          user = {
+            name = lib.mkIf cfg.personalGitEnable "iancleary";
+            email = lib.mkIf cfg.personalGitEnable "github@iancleary.me";
+          };
+        };
       };
     };
     home.packages = with pkgs; [
