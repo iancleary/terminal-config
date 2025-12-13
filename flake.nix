@@ -2,7 +2,7 @@
   description = "iancleary's terminal configuration (git, zsh, etc.)";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
@@ -40,7 +40,7 @@
         modules = [
           ({ pkgs, ... }: {
             boot.isContainer = true;
-            system.stateVersion = "25.05";
+            system.stateVersion = "25.11";
           })
         ];
       };
